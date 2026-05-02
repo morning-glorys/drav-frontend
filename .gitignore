@@ -13,6 +13,15 @@
 # testing
 /coverage
 
+
+node_modules
+.next
+.env
+.DS_Store
+bun.lockb
+
+
+
 # next.js
 /.next/
 /out/

@@ -1,61 +1,78 @@
+import React from "react";
+import { Search, ShoppingBag, User, Menu, Link } from "lucide-react";
+
 export default function Header() {
   return (
-    <header className="w-full sticky top-0 z-50 bg-white dark:bg-zinc-950 border-b border-zinc-100 dark:border-zinc-900 font-['Space_Grotesk'] antialiased tracking-tight">
-      <div className="max-w-[1280px] mx-auto flex justify-between items-center px-8 h-20">
-        <a
-          className="text-2xl font-bold tracking-tighter text-zinc-900 dark:text-zinc-50 opacity-90 active:scale-95 transition-transform"
-          href="#"
+    <header className="w-full sticky top-0 z-50 bg-surface border-b border-surface-variant">
+      <div className="max-w-[1280px] mx-auto flex justify-between items-center px-8 h-16">
+        {/* Brand */}
+        <Link
+          className="text-xl font-bold tracking-widest text-on-surface"
+          href="/"
         >
-          DRAV
-        </a>
+          LUXE
+        </Link>
+
+        {/* Nav Links */}
         <nav className="hidden md:flex items-center gap-8">
-          <a
-            className="text-zinc-900 dark:text-zinc-50 font-bold border-b-2 border-zinc-900 dark:border-zinc-50 pb-1 opacity-90 active:scale-95 transition-transform"
+          <Link
+            className="text-sm font-semibold text-on-surface border-b border-on-surface pb-0.5"
             href="#"
           >
             Shop
-          </a>
-          <a
-            className="text-zinc-500 dark:text-zinc-400 font-medium hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-300 opacity-90 active:scale-95 transition-transform"
+          </Link>
+          <Link
+            className="text-sm text-on-surface-variant hover:text-on-surface transition-colors"
             href="#"
           >
             New Arrivals
-          </a>
-          <a
-            className="text-zinc-500 dark:text-zinc-400 font-medium hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-300 opacity-90 active:scale-95 transition-transform"
+          </Link>
+          <Link
+            className="text-sm text-on-surface-variant hover:text-on-surface transition-colors"
             href="#"
           >
             Collections
-          </a>
-          <a
-            className="text-zinc-500 dark:text-zinc-400 font-medium hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-300 opacity-90 active:scale-95 transition-transform"
+          </Link>
+          <Link
+            className="text-sm text-on-surface-variant hover:text-on-surface transition-colors"
             href="#"
           >
             Journal
-          </a>
+          </Link>
         </nav>
-        <div className="flex items-center gap-6 text-zinc-900 dark:text-zinc-100">
+
+        {/* Icon Actions */}
+        <div className="flex items-center gap-5 text-on-surface">
+          {/* Search */}
           <button
-            aria-label="search"
-            className="opacity-90 active:scale-95 transition-transform hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-300"
+            aria-label="Search"
+            className="hover:text-on-surface-variant transition-colors active:scale-95"
           >
-            <span className="material-symbols-outlined font-light">search</span>
+            <Search size={20} strokeWidth={1.5} />
           </button>
+
+          {/* Cart */}
           <button
-            aria-label="shopping_cart"
-            className="opacity-90 active:scale-95 transition-transform hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-300"
+            aria-label="Shopping bag"
+            className="hover:text-on-surface-variant transition-colors active:scale-95"
           >
-            <span className="material-symbols-outlined font-light">
-              shopping_cart
-            </span>
+            <ShoppingBag size={20} strokeWidth={1.5} />
           </button>
+
+          {/* Account — hidden di mobile */}
           <button
-            aria-label="account_circle"
-            className="hidden md:block opacity-90 active:scale-95 transition-transform hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-300"
+            aria-label="Account"
+            className="hidden md:block hover:text-on-surface-variant transition-colors active:scale-95"
           >
-            <span className="material-symbols-outlined font-light">
-              account_circle
-            </span>
+            <User size={20} strokeWidth={1.5} />
+          </button>
+
+          {/* Hamburger — mobile only */}
+          <button
+            aria-label="Menu"
+            className="md:hidden hover:text-on-surface-variant transition-colors active:scale-95"
+          >
+            <Menu size={20} strokeWidth={1.5} />
           </button>
         </div>
       </div>

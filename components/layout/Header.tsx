@@ -1,44 +1,44 @@
 import React from "react";
-import { Search, ShoppingBag, User, Menu, Link } from "lucide-react";
+import Link from "next/link";
+import { Search, ShoppingBag, User, Menu } from "lucide-react";
 
 export default function Header() {
   return (
     <header className="w-full sticky top-0 z-50 bg-surface border-b border-surface-variant">
       <div className="max-w-[1280px] mx-auto flex justify-between items-center px-8 h-16">
         {/* Brand */}
-        <Link
-          className="text-xl font-bold tracking-widest text-on-surface"
-          href="/"
-        >
-          LUXE
+        <Link href="/">
+          <span className="text-xl font-bold tracking-widest text-on-surface">
+            DRAV
+          </span>
         </Link>
 
         {/* Nav Links */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link
+          <a
             className="text-sm font-semibold text-on-surface border-b border-on-surface pb-0.5"
             href="#"
           >
             Shop
-          </Link>
-          <Link
+          </a>
+          <a
             className="text-sm text-on-surface-variant hover:text-on-surface transition-colors"
             href="#"
           >
             New Arrivals
-          </Link>
-          <Link
+          </a>
+          <a
             className="text-sm text-on-surface-variant hover:text-on-surface transition-colors"
             href="#"
           >
             Collections
-          </Link>
-          <Link
+          </a>
+          <a
             className="text-sm text-on-surface-variant hover:text-on-surface transition-colors"
             href="#"
           >
             Journal
-          </Link>
+          </a>
         </nav>
 
         {/* Icon Actions */}

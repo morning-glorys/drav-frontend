@@ -1,15 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
-/* Panggil Tailwind v4 */
+
 @import "tailwindcss";
 
-/* 
- * Sistem Tema Native Tailwind v4
- * Menggantikan file tailwind.config.ts dan skrip CDN lama 
- */
 @theme {
-  /* Colors - Berdasarkan konfigurasi dari Stitch */
   --color-surface: #fdf8f8;
   --color-surface-dim: #ddd9d8;
   --color-surface-container-lowest: #ffffff;
@@ -25,11 +20,7 @@
   --color-background: #fdf8f8;
   --color-on-background: #1c1b1b;
 
-  /* 
-   * Spacing 
-   * Ini adalah perbaikan krusial agar komponen (seperti gap-gutter dan py-xl) 
-   * tidak saling menumpuk.
-   */
+
   --spacing-xs: 4px;
   --spacing-base: 8px;
   --spacing-sm: 12px;
@@ -81,10 +72,7 @@
     @apply bg-background text-on-background antialiased selection:bg-surface-variant selection:text-on-surface;
   }
 
-  /* 
-   * Fix untuk Material Symbols 
-   * Mencegah reset bawaan Tailwind yang membuat icon kembali menjadi teks.
-   */
+
   .material-symbols-outlined {
     font-family: 'Material Symbols Outlined' !important;
     font-weight: normal;

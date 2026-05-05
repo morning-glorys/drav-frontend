@@ -1,6 +1,7 @@
 import HeroSearch from "@/components/home/HeroSearch";
 import Curated from "@/components/home/Curated";
 import ProductList from "@/components/home/ProductList";
+import MainLayout from "@/components/layout/MainLayout";
 
 export default function Home() {
   const latestProducts = [
@@ -47,10 +48,12 @@ export default function Home() {
   ];
 
   return (
-    <main className="max-w-[1280px] mx-auto px-4 md:px-gutter">
-      <HeroSearch />
-      <Curated />
-      <ProductList title="Everyday Objects" products={latestProducts} />
-    </main>
+    <MainLayout>
+      <main className="max-w-[1280px] mx-auto px-4 md:px-gutter">
+        <HeroSearch />
+        <Curated />
+        <ProductList title="Everyday Objects" products={latestProducts} />
+      </main>
+    </MainLayout>
   );
 }

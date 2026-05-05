@@ -3,6 +3,10 @@ import Link from "next/link";
 import { Search, ShoppingBag, User, Menu } from "lucide-react";
 
 export default function Header() {
+  // TODO: Ganti dengan state autentikasi sebenarnya dari backend Golang/Gin kamu
+  // (misalnya menggunakan Context, Zustand, atau mengecek token/cookies).
+  const isLoggedIn = false;
+
   return (
     <header className="w-full sticky top-0 z-50 bg-surface border-b border-surface-variant">
       <div className="max-w-[1280px] mx-auto flex justify-between items-center px-8 h-16">
@@ -52,20 +56,39 @@ export default function Header() {
           </button>
 
           {/* Cart */}
-          <button
+          <Link
+            href="/cart"
             aria-label="Shopping bag"
-            className="hover:text-on-surface-variant transition-colors active:scale-95"
+            className="hover:text-on-surface-variant transition-colors active:scale-95 flex items-center"
           >
             <ShoppingBag size={20} strokeWidth={1.5} />
-          </button>
+          </Link>
 
-          {/* Account — hidden di mobile */}
-          <button
-            aria-label="Account"
-            className="hidden md:block hover:text-on-surface-variant transition-colors active:scale-95"
-          >
-            <User size={20} strokeWidth={1.5} />
-          </button>
+          {/* Logika Autentikasi (Account vs Sign In/Register) */}
+          {isLoggedIn ? (
+            <Link
+              href="/dashboard"
+              aria-label="Account"
+              className="hidden md:flex hover:text-on-surface-variant transition-colors active:scale-95 items-center"
+            >
+              <User size={20} strokeWidth={1.5} />
+            </Link>
+          ) : (
+            <div className="hidden md:flex items-center gap-4 border-l border-surface-variant pl-5 ml-1">
+              <Link
+                href="/login"
+                className="text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors"
+              >
+                Sign In
+              </Link>
+              <Link
+                href="/register"
+                className="text-sm font-medium bg-primary text-on-primary px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+              >
+                Create Account
+              </Link>
+            </div>
+          )}
 
           {/* Hamburger — mobile only */}
           <button

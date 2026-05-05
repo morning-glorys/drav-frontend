@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "DRAV - Premium Minimalist E-commerce",
@@ -16,10 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
-        <Header />
-        <div className="flex-grow">{children}</div>
-
-        <Footer />
+        <div className="grow">{children}</div>
       </body>
     </html>
   );

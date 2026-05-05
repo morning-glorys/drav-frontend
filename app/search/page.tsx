@@ -2,6 +2,7 @@ import React from "react";
 import SearchHeader from "@/components/search/SearchHeader";
 import FilterSidebar from "@/components/search/FilterSideBar";
 import ProductCard from "@/components/ui/ProductCard";
+import MainLayout from "@/components/layout/MainLayout";
 
 const searchResults = [
   {
@@ -44,23 +45,25 @@ const searchResults = [
 
 export default function SearchPage() {
   return (
-    <main className="max-w-[7xl] mx-auto px-4 md:px-8 py-8 md:py-12">
-      <SearchHeader />
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-        <FilterSidebar />
-        <div className="col-span-1 md:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {searchResults.map((product) => (
-            <ProductCard
-              key={product.id}
-              imageSrc={product.imageSrc}
-              imageAlt={product.imageAlt}
-              title={product.title}
-              subtitle={product.subtitle}
-              price={product.price}
-            />
-          ))}
+    <MainLayout>
+      <main className="max-w-[7xl] mx-auto px-4 md:px-8 py-8 md:py-12">
+        <SearchHeader />
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <FilterSidebar />
+          <div className="col-span-1 md:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {searchResults.map((product) => (
+              <ProductCard
+                key={product.id}
+                imageSrc={product.imageSrc}
+                imageAlt={product.imageAlt}
+                title={product.title}
+                subtitle={product.subtitle}
+                price={product.price}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </MainLayout>
   );
 }

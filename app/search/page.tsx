@@ -1,5 +1,5 @@
 import React from "react";
-import SearchHeader from "@/components/search/SearchHeader";
+import { Wand2 } from "lucide-react";
 import FilterSidebar from "@/components/search/FilterSideBar";
 import ProductCard from "@/components/ui/ProductCard";
 import MainLayout from "@/components/layout/MainLayout";
@@ -8,59 +8,110 @@ const searchResults = [
   {
     id: 1,
     imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC_60sa1tZuqjb_uuh2-n0aqNcJUBVNhBnPQ5jlkjbA2PGdTMletWt_iAjfYXZu89JKSGJ9_ZHBE7EyixHuahN1qIJVe0ibD6Yut_SZO5HDsof8wsK29v3q-ABXg5ermc5mpd_p8OStMrtzKaUVqd_mTrWRat_LHCkUCNSS5Lu3ybEONERDaxdWVc2dRvvBXF44k9Z85AJSYr_U3F_xGhDowqQpGe4GaJ4bWhM3ywMEG7jll9FpFTf-Ttc7cFm4GPMrK11hEU3rfb3r",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAgpkUPalXK_ZhHvUbO1I1e5CKAdgb8Z_MjSn_Yatjicfvc7PGH3sTePyVzgzeZDctzvjPkQQHkZOg3tXwztdkTqqKEJ40nTt9TB6lcd2YW-9HsHtqOXmHHoRP_zjNZ4vu5pRkkYAa_UaKXlWe-jc8Z8_l69eSNpDHuPlBbYnxVbxVoxVDCQ1Ptf1qHWW9Poa1HUfcknUogE8kpzha5L7ZdeCCHLr5_difOpjA0rYjOINpkSK0u8QgVlYgeQx1ZIVvepIlQtzDku4il",
     imageAlt: "Essential Heavyweight Hoodie",
     title: "Essential Heavyweight Hoodie",
     subtitle: "100% Organic Cotton",
-    price: 145,
+    price: 185,
+    highMatch: true,
   },
   {
     id: 2,
     imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCb7r4ZRGZgh7A8nLgFG3cZPr3MxEIltPb3cn2Oz8Df3NajPi0L5RMWdDazYlj4fR0BCM-7YG8D-qcBDY_ZL4OxT1WuGz34njJUer_5AfGdSyugzqsWtjzsrpucY4Po8oF1THxK1ujWrn_xMxHqfFVoJGISSMu3wxir-KLJ6ifEwx3VR_ZiTYv6BFNM6htAfIsp0FNctgyrSYW-izKHvQjA5KmaNDDv81vUqUH1Nmyklq0YeKMXE5uFtU0pWImSi2hG9KWw3op4LqZf",
-    imageAlt: "Tech-Knit Pullover",
-    title: "Tech-Knit Pullover",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuALstMEyqkg5ujOgtZQ5HENk2vViICY_J4rcExfkzZIxPZTD3f_sIg1tfNq8-_dNqMSy37f553gnY7hD8D7BceK809e_CgqQV2K57-Ik5BXDr9dYf1td8xm9eikX2Lx3zX_eggFWXylbTQKgzz6WD43SlLUoaKfjz1DvoqZFl-u12zsZ2ZJ8MvKcqKf6uETh6KwJka1K1Eai_x_WPAKJRxJcAMfGcINjwwDM2jmoRhXI1LX_9nXTF8lXfCgIOt6wIK0kK8DYVZL8jaS",
+    imageAlt: "Oversized Minimal Pullover",
+    title: "Oversized Minimal Pullover",
     subtitle: "Merino Blend",
-    price: 185,
+    price: 195,
+    highMatch: false,
   },
   {
     id: 3,
     imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA7f1Av5x7CH2_cQrp49ud0pzOvJJ_W-eTsU3So_e5V6ehyFkqbCNicH0Ix_Lcz2NtTm9KcglvymVvnYo6oT8eZ4SlL6ozJIrTi-Ob5XiMBggR5xgtA3Z9HjaVq7lD9XUARfrksFGGzjbh3wWtUzWOuu8vqFFsVWzcziN7w0tMhzstzfIgq4DSX6h03NmGhuGDdkXFzEnx0VnTQQ6mXn0q73hN7FBBiatlSqt4T63OpBD0BBtPvw5t5JTNC1TsaMR1kC7WPFaJR8Tk5",
-    imageAlt: "Structured Zip Hoodie",
-    title: "Structured Zip Hoodie",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuC8UDAqp0dGsgbk3iDH01JRjG_P4JHhXtJivkP4qgiLvXQPmH4DJb1CwiqCXHwT86bln0bjap_FKSQeYvWQQPj_H-eMG1JDIuO6xNAaJK6nioT5cJirmz6nU9AaN6bFtVlHei5naheimmBze-VX5s-0It9CywTtTudRBjCRRuuUgs40OF2DIhqT8MhQEWiW3uE7EVkA0qgx5kJcWStvByRnA6hIPVCX6ebbzeQyWMWMASocrV8Y-UFmiFBsBLmYn67PC_LSCUkFjBuZ",
+    imageAlt: "Core Zip-Up Hoodie",
+    title: "Core Zip-Up Hoodie",
     subtitle: "Japanese French Terry",
-    price: 195,
+    price: 170,
+    highMatch: false,
   },
   {
     id: 4,
     imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDIlY9zk4PSqZY8wvAxAAruv4Ixbko_aGty308oBGLRyUwCa55vhne15UQ7SOYR8axOhCo-SN6QJ-5e20kMtaiIpmbLejRaPN6ESdN3m_4BD94bWrH1r77dvxPxl_pflHlHDUIDh014_E-sxeNuHKMA_zaBmpjSG6UJtSLoafaqquNFR9FTLsjLm3rT9F9lXnr1wLLP3tIWB25Tg99OLIG5dmtT2uE6an4VHq12TgBpRaLVSaFY4kk-hHrgVKvyLmeBmbiFibO0tSP6",
-    imageAlt: "Oversized Lounge Hoodie",
-    title: "Oversized Lounge Hoodie",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCldkdLuCjcklww5w7bOz3DczrvhY1y3A6bb1PQD2S822Tt0_2BSPZ9fh-gwwQOU-I2a-Hx6pfwM6cAj2TGJ_bSYSBTlwx5RX5Ptw6-jzC7spg36nvZig7i_RSsm7eMBrgFphZ81s4_ii-WIBuOpy6hAcCcW3fLtpz2PNVTBV4VwznrjkzMUM10xElSg1-q-u7cCQc_7OIXeDEBdaSjR63SIMpYFrLnyLeGmDWxiBDtBbahbeaD0qrHQbwlHfpSXv57ya8ZtbJ4b9zD",
+    imageAlt: "Tech Fleece Pullover",
+    title: "Tech Fleece Pullover",
     subtitle: "Brushed Cotton",
-    price: 120,
+    price: 199,
+    highMatch: false,
   },
 ];
 
 export default function SearchPage() {
   return (
     <MainLayout>
-      <main className="max-w-[7xl] mx-auto px-4 md:px-8 py-8 md:py-12">
-        <SearchHeader />
+      <main className="max-w-[1280px] mx-auto px-4 md:px-8 py-8 md:py-12">
+        {/* AI Interpretation Header */}
+        <section className="mb-lg border-b border-surface-variant pb-md">
+          <h1 className="font-h1 text-h1 text-primary mb-2">Search Results</h1>
+          <div className="flex items-center gap-2 bg-surface-container-low p-2 rounded-lg inline-flex">
+            <Wand2 size={18} className="text-secondary" />
+            <p className="font-body-sm text-body-sm text-on-surface-variant">
+              Showing results for:{" "}
+              <strong className="text-primary font-medium">
+                minimalist black hoodie under Rp200.000
+              </strong>
+            </p>
+          </div>
+          <p className="font-label text-label text-on-surface-variant mt-3 max-w-[480px]">
+            Based on your search, we selected relevant items emphasizing minimal
+            design, black colorway, and price constraint.
+          </p>
+        </section>
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          {/* Smart Filters (Menggunakan komponen lamamu) */}
           <FilterSidebar />
-          <div className="col-span-1 md:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {searchResults.map((product) => (
-              <ProductCard
-                key={product.id}
-                imageSrc={product.imageSrc}
-                imageAlt={product.imageAlt}
-                title={product.title}
-                subtitle={product.subtitle}
-                price={product.price}
-              />
-            ))}
+
+          <div className="col-span-1 md:col-span-9">
+            {/* Toolbar */}
+            <div className="flex justify-between items-center mb-md pb-sm border-b border-surface-variant">
+              <span className="font-body-sm text-body-sm text-on-surface-variant">
+                Showing {searchResults.length} items
+              </span>
+              <div className="flex items-center gap-2">
+                <span className="font-body-sm text-body-sm text-on-surface-variant">
+                  Sort by:
+                </span>
+                <select className="bg-transparent border-none font-body-sm text-body-sm text-primary font-medium focus:ring-0 cursor-pointer p-0 pr-6">
+                  <option>Relevance (AI)</option>
+                  <option>Price: Low to High</option>
+                  <option>Price: High to Low</option>
+                  <option>Newest Arrivals</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {searchResults.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  imageSrc={product.imageSrc}
+                  imageAlt={product.imageAlt}
+                  title={product.title}
+                  subtitle={product.subtitle}
+                  price={product.price}
+                  highMatch={product.highMatch}
+                />
+              ))}
+            </div>
+
+            <div className="mt-lg text-center">
+              <button className="bg-white border border-outline-variant text-primary font-body-lg text-body-lg px-8 py-3 rounded hover:bg-surface-container-low transition-colors">
+                Load More Results
+              </button>
+            </div>
           </div>
         </div>
       </main>

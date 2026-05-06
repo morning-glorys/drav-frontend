@@ -1,67 +1,53 @@
 import React from "react";
 import Image from "next/image";
+import { Zap } from "lucide-react";
 
 interface ProductCardProps {
   imageSrc: string;
   imageAlt: string;
   title: string;
-  subtitle?: string;
   price: number;
-  rating?: number;
-  reviews?: number;
+  subtitle?: string;
+  highMatch?: boolean;
 }
 
 export default function ProductCard({
   imageSrc,
   imageAlt,
   title,
-  subtitle,
   price,
-  rating,
-  reviews,
+  subtitle,
+  highMatch = false,
 }: ProductCardProps) {
   return (
-    <a href="#" className="group block">
-      {/* Image */}
-      <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-container-low mb-3">
+    <a className="group block cursor-pointer" href="#">
+      <div className="bg-surface-container-high rounded-lg mb-sm overflow-hidden relative aspect-[3/4]">
+        {/* Render High Match Badge jika highMatch bernilai true */}
+        {highMatch && (
+          <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded flex items-center gap-1 z-10 border border-surface-variant">
+            <Zap size={12} className="text-primary fill-primary" />
+            <span className="font-label text-[10px] uppercase tracking-wider text-primary font-semibold">
+              High Match
+            </span>
+          </div>
+        )}
         <Image
-          src={imageSrc}
           alt={imageAlt}
+          src={imageSrc}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       </div>
 
-      {/* Info */}
-      <div className="flex justify-between items-start gap-2">
-        <div className="min-w-0">
-          <p className="text-sm font-semibold text-on-surface truncate">
-            {title}
+      <div className="flex flex-col mt-xs">
+        <h3 className="font-body-lg text-body-lg text-primary mb-1">{title}</h3>
+        {subtitle && (
+          <p className="font-body-sm text-body-sm text-on-surface-variant mb-1">
+            {subtitle}
           </p>
-
-          {/* Subtitle */}
-          {subtitle && (
-            <p className="text-xs text-on-surface-variant mt-0.5">{subtitle}</p>
-          )}
-
-          {/* Rating — untuk homepage */}
-          {rating !== undefined && reviews !== undefined && (
-            <div className="flex items-center gap-1 mt-1">
-              <span
-                className="material-symbols-outlined text-amber-400"
-                style={{ fontSize: "14px" }}
-              >
-                star
-              </span>
-              <span className="text-xs text-on-surface-variant">
-                {rating.toFixed(1)} ({reviews})
-              </span>
-            </div>
-          )}
-        </div>
-
-        <p className="text-sm font-bold text-on-surface shrink-0">${price}</p>
+        )}
+        <p className="font-price text-price text-primary">${price}</p>
       </div>
     </a>
   );

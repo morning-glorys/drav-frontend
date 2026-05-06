@@ -6,7 +6,7 @@ interface ProductCardProps {
   imageSrc: string;
   imageAlt: string;
   title: string;
-  price: number;
+  price: number | string;
   subtitle?: string;
   highMatch?: boolean;
 }
@@ -20,9 +20,8 @@ export default function ProductCard({
   highMatch = false,
 }: ProductCardProps) {
   return (
-    <a className="group block cursor-pointer" href="#">
-      <div className="bg-surface-container-high rounded-lg mb-sm overflow-hidden relative aspect-[3/4]">
-        {/* Render High Match Badge jika highMatch bernilai true */}
+    <a className="group flex flex-col h-full cursor-pointer" href="#">
+      <div className="bg-surface-container-high rounded-lg mb-sm overflow-hidden relative aspect-[3/4] w-full">
         {highMatch && (
           <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded flex items-center gap-1 z-10 border border-surface-variant">
             <Zap size={12} className="text-primary fill-primary" />
@@ -40,14 +39,18 @@ export default function ProductCard({
         />
       </div>
 
-      <div className="flex flex-col mt-xs">
-        <h3 className="font-body-lg text-body-lg text-primary mb-1">{title}</h3>
+      <div className="flex flex-col mt-xs flex-grow justify-start">
+        <h3 className="font-body-lg text-body-lg text-primary mb-1 line-clamp-1">
+          {title}
+        </h3>
         {subtitle && (
-          <p className="font-body-sm text-body-sm text-on-surface-variant mb-1">
+          <p className="font-body-sm text-body-sm text-on-surface-variant mb-1 line-clamp-1">
             {subtitle}
           </p>
         )}
-        <p className="font-price text-price text-primary">${price}</p>
+        <p className="font-price text-price text-primary mt-auto">
+          {typeof price === "number" ? `$${price}` : `Rp ${price}`}
+        </p>
       </div>
     </a>
   );
